@@ -13,7 +13,7 @@ import Foundation
 //let num = 19
 
 func findNumber(_ num: Int, attempts: Int = 0) -> Bool {
-  if attempts > 100 {
+  if attempts > 30 {
     return false
   }
   
@@ -23,9 +23,9 @@ func findNumber(_ num: Int, attempts: Int = 0) -> Bool {
   var ret = 0
   
   while temp != 0  {
-    let digitial = temp % 10
-    ret += digitial * digitial
+    let digital = temp % 10
     temp /= 10
+    ret += digital * digital
   }
   
   if ret == 1 {
