@@ -4,5 +4,6 @@
         <page name='1.single number'/>
         <page name='2.happy number'/>
         <page name='3.maxmum subarray'/>
+        <page name='4.move zeros'/>
     </pages>
 </playground>
