@@ -7,5 +7,6 @@
         <page name='4.move zeros'/>
         <page name='5.Best Time to Buy and Sell Stock II'/>
         <page name='6.Group Anagrams'/>
+        <page name='7.Couting Elements'/>
     </pages>
 </playground>
