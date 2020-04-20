@@ -36,47 +36,6 @@ import Foundation
  > - 1 <= T.length <= 200
  > - S and T only contain lowercase letters and '#' characters.
  */
-
-struct Stack<Element: Equatable> : Equatable {
-  static func == (lhs: Stack<Element>, rhs: Stack<Element>) -> Bool {
-    return lhs.values == rhs.values
-  }
-  
-  private var data: [Element] = []
-  
-  var values: [Element] {
-    return data
-  }
-
-  mutating func push(_ el: Element) {
-    data.append(el)
-  }
-
-  mutating func pop() -> Element? {
-    guard data.count > 0 else {
-      return nil
-    }
-
-    return data.removeLast()
-  }
-}
-
-var stack = Stack<Int>()
-stack.push(1)
-stack.push(2)
-stack.values
-stack.pop()
-stack.values
-
-var stack2 = Stack<Int>()
-stack2.push(1)
-stack2.push(2)
-stack2.values
-stack2.pop()
-stack2.values
-
-stack == stack2
-
 class Solution {
     func backspaceCompare(_ S: String, _ T: String) -> Bool {
       guard S != T else {
@@ -86,18 +45,18 @@ class Solution {
       return applyBackspace(S) == applyBackspace(T)
     }
   
-  private func applyBackspace(_ str: String) -> [Character] {
-    var stack = Stack<Character>()
+  private func applyBackspace(_ str: String) -> String {
+    var stack = ""
 
     for c in str {
       if c != "#" {
-        stack.push(c)
+        stack.append(c)
       } else {
-        stack.pop()
+        stack.popLast()
       }
     }
     
-    return stack.values
+    return stack
   }
 }
 
