@@ -40,37 +40,20 @@ class Solution {
     guard let head = head else {
       return nil
     }
-    let array = toArray(head)
     
-    let middleIndex = (Float(array.count) / Float(2.0))
-      .rounded(.down)
-    return array[Int(middleIndex)]
-  }
-  
-  private func toArray(_ head: ListNode) -> [ListNode] {
-    var current = head
-
-    var ret: [ListNode] = []
-
-    while true {
-      ret.append(current)
-
-      if let next = current.next {
-        current = next
-      } else {
-        return ret
-      }
+    var fast: ListNode? = head
+    var slow: ListNode? = head
+    
+    while fast?.next != nil {
+      slow = slow?.next
+      fast = fast?.next?.next
     }
     
-    return ret
+    return slow
   }
 }
 
 Solution().middleNode(head1)
 Solution().middleNode(head2)
-
-
-
-// build a linked list first
 
 //: [Next](@next)
