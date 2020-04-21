@@ -41,27 +41,26 @@ let root = TreeNode(1,
 print(root)
 
 class Solution {
+  private var longestPath = 0
+
   func diameterOfBinaryTree(_ root: TreeNode?) -> Int {
-    guard let root = root else {
-      return 0
-    }
-    
-    let leftHeight = height(root.left)
-    let rightHeight = height(root.right)
-    
-    let leftDiameter = diameterOfBinaryTree(root.left)
-    let rightDiameter = diameterOfBinaryTree(root.right)
-    
-    return max(leftHeight + rightHeight, max(leftDiameter, rightDiameter))
-  }
-    
-    private func height(_ node: TreeNode?) -> Int {
-      guard let node = node else {
+    func depth(_ root: TreeNode?) -> Int {
+      guard let root = root else {
         return 0
       }
       
-      return 1 + max(height(node.left), height(node.right))
+      let leftMaxDepth = depth(root.left)
+      let rightMaxDepth = depth(root.right)
+      
+      longestPath = max(longestPath, leftMaxDepth + rightMaxDepth)
+      
+      return 1 + max(leftMaxDepth, rightMaxDepth)
     }
+    
+    depth(root)
+    
+    return longestPath
+  }
 }
 
 Solution().diameterOfBinaryTree(root)
