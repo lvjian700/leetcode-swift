@@ -10,5 +10,6 @@
         <page name='7.Couting Elements'/>
         <page name='8.Middle of LinkedList'/>
         <page name='9.Backspace String Compare'/>
+        <page name='10. Mini Stack'/>
     </pages>
 </playground>
