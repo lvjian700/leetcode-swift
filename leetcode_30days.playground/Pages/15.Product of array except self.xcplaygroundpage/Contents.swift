@@ -18,20 +18,17 @@ import Foundation
  */
 class Solution {
     func productExceptSelf(_ nums: [Int]) -> [Int] {
-      var towards = Array<Int>(repeating: 1, count: nums.count)
-      var backwards = Array<Int>(repeating: 1, count: nums.count)
       var ret = Array<Int>(repeating: 1, count: nums.count)
       
-      for tIndex in (1...nums.count - 1) {
-          towards[tIndex] = towards[tIndex - 1] * nums[tIndex - 1]
+      for tIndex in stride(from: 1, to: nums.count, by: 1) {
+          ret[tIndex] = ret[tIndex - 1] * nums[tIndex - 1]
       }
-      
-      for bIndex in stride(from: nums.count - 2, to: -1, by: -1) {
-          backwards[bIndex] = backwards[bIndex + 1] * nums[bIndex + 1]
-      }
-      
-      for i in (0...nums.count - 1) {
-        ret[i] = towards[i] * backwards[i]
+
+      var backwards = 1
+
+      for bIndex in stride(from: nums.count - 1, through: 0, by: -1) {
+          ret[bIndex] = ret[bIndex] * backwards
+          backwards *= nums[bIndex]
       }
       
       return ret
