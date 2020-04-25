@@ -28,39 +28,23 @@ import Foundation
  > The string size will be in the range [1, 100].
  */
 class Solution {
-  private let map: [Character: Int] = [
-    "(" : 1,
-    ")" : -1,
-    "*" : 0
-  ]
-
   func checkValidString(_ s: String) -> Bool {
-      return valid(Array(s), index: 0, initVal: 0) == 0
-  }
-  
-  private func valid(_ chars: [Character], index: Int, initVal: Int = 0) -> Int {
-    guard index < chars.count, chars.count != 0 else {
-      return initVal
+    guard s.count != 0 else {
+      return true
     }
 
-    guard
-      let first = chars.first, map[first] != -1,
-      let last = chars.last, map[last] != 1
-    else {
-      return 1
-    }
-
-    let current = map[chars[index]]!
+    var lessLeft = 0 // * is )
+    var moreLeft = 0 // * is (
     
-    if current != 0 {
-      return valid(chars, index: index + 1, initVal: initVal + current)
+    for c in s {
+      lessLeft += (c == "(") ? 1 : -1
+      moreLeft += (c != ")") ? 1 : -1
+      if moreLeft < 0 { break }
+
+      lessLeft = max(lessLeft, 0)
     }
 
-    let left = valid(chars, index: index + 1, initVal: initVal + 1)
-    let middle = valid(chars, index: index + 1, initVal: initVal)
-    let right = valid(chars, index: index + 1, initVal: initVal + -1)
-
-    return left * middle * right
+    return lessLeft == 0
   }
 }
 
@@ -77,5 +61,5 @@ Solution().checkValidString("**))")
 Solution().checkValidString("(()*")
 
 // Crash
-//Solution().checkValidString("((()))()(())(*()()())**(())()()()()((*()*))((*()*)")
+Solution().checkValidString("((()))()(())(*()()())**(())()()()()((*()*))((*()*)")
 //: [Next](@next)
