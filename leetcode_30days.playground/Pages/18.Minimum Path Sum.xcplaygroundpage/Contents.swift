@@ -29,9 +29,34 @@ let input = [
 ]
 
 class Solution {
-    func minPathSum(_ grid: [[Int]]) -> Int {
+  func minPathSum(_ grid: [[Int]]) -> Int {
+    guard grid.count > 0 && grid[0].count > 0 else {
       return 0
     }
+    
+    var mutated = grid
+    for (y, row) in grid.enumerated() {
+      for (x, cell) in row.enumerated() {
+        switch (x, y) {
+        case (0, 0):
+          continue
+        case (_, 0):
+          let left = mutated[y][x-1]
+          mutated[y][x] = left + cell
+        case (0, _):
+          let top = mutated[y-1][x]
+          mutated[y][x] = top + cell
+        default:
+          let left = mutated[y][x-1]
+          let top = mutated[y-1][x]
+          mutated[y][x] = min(left, top) + cell
+        }
+      }
+    }
+    
+    let lastRow = mutated[mutated.count - 1]
+    return lastRow[lastRow.count - 1]
+  }
 }
 
 Solution().minPathSum(input) // expected 7
