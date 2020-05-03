@@ -29,18 +29,21 @@ class Solution {
       }
 
       var ret: [Int] = []
-      
-      func traversal(_ node: TreeNode?) {
-        guard let node = node else {
-          return
-        }
+      var stack: [TreeNode] = [root]
 
+      while !stack.isEmpty {
+        let node = stack.removeLast()
         ret.append(node.val)
-        traversal(node.left)
-        traversal(node.right)
+        
+        if let right = node.right {
+          stack.append(right)
+        }
+        
+        if let left = node.left {
+          stack.append(left)
+        }
       }
-      traversal(root)
-      
+
       return ret
     }
 }
