@@ -3,5 +3,6 @@
     <pages>
         <page name='2.Binary Tree Inorder Traversal '/>
         <page name='1.Binary Tree Preorder Traversal '/>
+        <page name='3.Binary Tree Postorder Traversal'/>
     </pages>
 </playground>
