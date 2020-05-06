@@ -32,23 +32,26 @@ class Solution {
       return []
     }
     
-    var queue = [root]
+    var level = [root]
     var ret:[[Int]] = []
     
-    while !queue.isEmpty {
+    while !level.isEmpty {
       var answer: [Int] = []
+      var nextLevel: [TreeNode] = []
 
-      for _ in (0...queue.count - 1) {
-          let node = queue.removeFirst()
+      for node in level {
           answer.append(node.val)
+
           if let left = node.left {
-            queue.append(left)
+            nextLevel.append(left)
           }
+
           if let right = node.right {
-            queue.append(right)
+            nextLevel.append(right)
           }
       }
       
+      level = nextLevel
       ret.append(answer)
     }
     
