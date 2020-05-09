@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios'>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
         <page name='2.Binary Tree Inorder Traversal '/>
         <page name='1.Binary Tree Preorder Traversal '/>
         <page name='3.Binary Tree Postorder Traversal'/>
         <page name='4.Level-order Traversal'/>
         <page name='5.Maximum Depth of Binary Tree'/>
+        <page name='6.Symmetric Tree'/>
     </pages>
 </playground>
