@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios'>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
-        <page name='2.Binary Tree Inorder Traversal '/>
-        <page name='1.Binary Tree Preorder Traversal '/>
-        <page name='3.Binary Tree Postorder Traversal'/>
-        <page name='4.Level-order Traversal'/>
+        <page name='1.1 Binary Tree Preorder Traversal - Recursively'/>
+        <page name='1.2 Binary Tree Preorder Traversal - Iteratively'/>
+        <page name='2.1 Binary Tree Inorder Traversal - Recursively'/>
+        <page name='2.2 Binary Tree Inorder Traversal  - Iteratively'/>
+        <page name='3.1 Binary Tree Postorder Traversal - Recursively'/>
+        <page name='3.2 Binary Tree Postorder Traversal - Iteratively'/>
+        <page name='4.Level-order Traversal - Iteratively'/>
+        <page name='5.Maximum Depth of Binary Tree'/>
+        <page name='6.1 Symmetric Tree - Recursively'/>
+        <page name='7.Path Sum'/>
     </pages>
 </playground>
