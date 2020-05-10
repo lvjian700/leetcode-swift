@@ -7,8 +7,9 @@
         <page name='2.2 Binary Tree Inorder Traversal  - Iteratively'/>
         <page name='3.1 Binary Tree Postorder Traversal - Recursively'/>
         <page name='3.2 Binary Tree Postorder Traversal - Iteratively'/>
-        <page name='4.2 Level-order Traversal - Iteratively'/>
+        <page name='4.Level-order Traversal - Iteratively'/>
         <page name='5.Maximum Depth of Binary Tree'/>
-        <page name='6.Symmetric Tree - Recursively'/>
+        <page name='6.1 Symmetric Tree - Recursively'/>
+        <page name='7.Path Sum'/>
     </pages>
 </playground>
